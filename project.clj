@@ -1,22 +1,9 @@
 (defproject org.pinkgorilla/goldly-example-datascience "0.0.1-SNAPSHOT"
   :description "goldly datascience examples"
   :license {:name "MIT"}
-  :deploy-repositories [["releases" {:url "https://clojars.org/repo"
-                                     :username :env/release_username
-                                     :password :env/release_password
-                                     :sign-releases false}]]
   :min-lein-version "2.9.3"
   :min-java-version "1.11"
   :jvm-opts ["-Dclojure.tools.logging.factory=clojure.tools.logging.impl/jul-factory"]
-
-  :release-tasks [["vcs" "assert-committed"]
-                  ["bump-version" "release"]
-                  ["vcs" "commit" "Release %s"]
-                  ["vcs" "tag" "v" "--no-sign"]
-                  ["deploy"]
-                  ["bump-version"]
-                  ["vcs" "commit" "Begin %s"]
-                  ["vcs" "push"]]
 
   :managed-dependencies [[org.clojure/core.async "1.2.603"]
                          [org.clojure/tools.logging "1.1.0"]
